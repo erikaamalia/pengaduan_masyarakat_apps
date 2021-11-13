@@ -161,5 +161,5 @@
   </footer>
   @include('sweetalert::alert')
 </body>
-
+@include('pages.chatbot.chatbot')
 </html>
