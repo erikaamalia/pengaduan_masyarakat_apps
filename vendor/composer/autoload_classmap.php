@@ -125,6 +125,8 @@ return array(
     'BotMan\\BotMan\\Traits\\HandlesExceptions' => $vendorDir . '/botman/botman/src/Traits/HandlesExceptions.php',
     'BotMan\\BotMan\\Traits\\ProvidesStorage' => $vendorDir . '/botman/botman/src/Traits/ProvidesStorage.php',
     'BotMan\\BotMan\\Users\\User' => $vendorDir . '/botman/botman/src/Users/User.php',
+    'BotMan\\Drivers\\Web\\Providers\\WebServiceProvider' => $vendorDir . '/botman/driver-web/src/Providers/WebServiceProvider.php',
+    'BotMan\\Drivers\\Web\\WebDriver' => $vendorDir . '/botman/driver-web/src/WebDriver.php',
     'Brick\\Math\\BigDecimal' => $vendorDir . '/brick/math/src/BigDecimal.php',
     'Brick\\Math\\BigInteger' => $vendorDir . '/brick/math/src/BigInteger.php',
     'Brick\\Math\\BigNumber' => $vendorDir . '/brick/math/src/BigNumber.php',

@@ -30,7 +30,7 @@ private static $installed = array (
     'aliases' => 
     array (
     ),
-    'reference' => '37b4c0e110c1c8b1c6b2c3e0b6c9d2f618f7bcf6',
+    'reference' => '2917209fd827be3b54fa2b53257b428ef7881c85',
     'name' => 'laravel/laravel',
   ),
   'versions' => 
@@ -61,6 +61,15 @@ private static $installed = array (
       array (
       ),
       'reference' => '127f7dc0aef5bc0561f8a2a8a3b246fe951b63e7',
+    ),
+    'botman/driver-web' => 
+    array (
+      'pretty_version' => '1.5.1',
+      'version' => '1.5.1.0',
+      'aliases' => 
+      array (
+      ),
+      'reference' => '7399fd2994ee4c6c14c0a69268269e81fd2cd7f6',
     ),
     'brick/math' => 
     array (
@@ -514,7 +523,7 @@ private static $installed = array (
       'aliases' => 
       array (
       ),
-      'reference' => '37b4c0e110c1c8b1c6b2c3e0b6c9d2f618f7bcf6',
+      'reference' => '2917209fd827be3b54fa2b53257b428ef7881c85',
     ),
     'laravel/sail' => 
     array (
