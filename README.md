@@ -1,4 +1,4 @@
-# pengaduan_masyarakat_apps
+# Pengaduan_masyarakat_apps
 # Cara instalasi
 * Klon repo GitHub untuk proyek ini secara lokal
 ```bash
