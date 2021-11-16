@@ -1,5 +1,5 @@
 # pengaduan_masyarakat_apps
-# ara instalasi
+# Cara instalasi
 * Klon repo GitHub untuk proyek ini secara lokal
 ```bash
 git clone https://github.com/Hosnol/pengaduan_masyarakat_apps.git
