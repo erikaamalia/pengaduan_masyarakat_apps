@@ -24,5 +24,5 @@
   @include('sweetalert::alert')
   @include('includes.masyarakat.script')
 </body>
-
+@include('pages.chatbot.chatbot')
 </html>
