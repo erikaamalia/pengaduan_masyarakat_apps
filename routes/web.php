@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
 use RealRashid\SweetAlert\Facades\Alert;
 
 
@@ -16,7 +17,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 */
 
 Route::get('/', function () {
-    
+
     return view('welcome');
 });
 
@@ -36,6 +37,7 @@ Route::prefix('admin')
         Route::get('laporan', 'AdminController@laporan');
         Route::get('laporan/cetak', 'AdminController@cetak');
         Route::get('pengaduan/cetak/{id}', 'AdminController@pdf');
+        Route::resource('berita', 'BeritaController');
 });
 
 
@@ -47,6 +49,9 @@ Route::prefix('user')
                 Route::resource('pengaduan', 'MasyarakatController');
                 Route::get('pengaduan', 'MasyarakatController@lihat');
 });
+
+Route::resource('news', 'NewsController');
+Route::get('news','NewsController@news');
 
 
 
