@@ -473,16 +473,12 @@ class BotMan
             if (\count($parameterNames) !== \count($parameters)) {
                 $parameters = array_merge(
                 //First, all named parameters (eg. function ($a, $b, $c))
-                    array_filter(
-                        $parameters,
-                        '\is_string',
-                        ARRAY_FILTER_USE_KEY
+                    array_values(
+                        $parameters
                     ),
                     //Then, all other unsorted parameters (regex non named results)
-                    array_filter(
-                        $parameters,
-                        '\is_integer',
-                        ARRAY_FILTER_USE_KEY
+                    array_values(
+                        $parameters
                     )
                 );
             }

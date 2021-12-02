@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use RealRashid\SweetAlert\Facades\Alert;
+use App\Http\Controllers\BotManController;
 
 
 /*
@@ -16,7 +17,7 @@ use RealRashid\SweetAlert\Facades\Alert;
 */
 
 Route::get('/', function () {
-    
+
     return view('welcome');
 });
 
@@ -48,8 +49,6 @@ Route::prefix('user')
                 Route::get('pengaduan', 'MasyarakatController@lihat');
 });
 
-
-
-
+Route::match(['get', 'post'], '/botman', 'BotManController@handle');
 
 require __DIR__.'/auth.php';
