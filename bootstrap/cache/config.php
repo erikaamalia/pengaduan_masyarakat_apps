@@ -492,8 +492,8 @@
         'host' => 'smtp.gmail.com',
         'port' => '465',
         'encryption' => 'ssl',
-        'username' => 'hosnolarifin220@gmail.com',
-        'password' => 'Hosnol_Arifin20',
+        'username' => 'pengkat.2021@gmail.com',
+        'password' => 'pengaduanMasyarakat2021',
         'timeout' => NULL,
         'auth_mode' => NULL,
       ),
@@ -524,9 +524,18 @@
         'transport' => 'array',
       ),
     ),
+    'stream' => 
+    array (
+      'ssl' => 
+      array (
+        'allow_self_signed' => true,
+        'verify_peer' => false,
+        'veryfy_peer_name' => false,
+      ),
+    ),
     'from' => 
     array (
-      'address' => 'hosnolarifin220@gmail.com',
+      'address' => 'pengkat.2021@gmail.com',
       'name' => 'Laravel',
     ),
     'markdown' => 

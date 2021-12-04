@@ -1,8 +1,21 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PENGKAT | Reset Password</title>
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('img/favicon.svg')}}">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+</head>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <img class="w-20 h-20" src="{{ asset('img/logo.svg')}} " alt="Logo">
             </a>
         </x-slot>
 

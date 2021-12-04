@@ -44,7 +44,7 @@ Dashboard
 
         <div class=" mt-4 form-check">
             <input class="form-check-input" type="checkbox"  name="check">
-            <label class="form-check-label">
+            <label class="text-gray-700 dark:text-gray-400">
                 Dengan ini saya menyatakan bahwa laporan yang saya buat ini dapat
                 saya pertanggungjawabkan kebenarannya.
             </label>
