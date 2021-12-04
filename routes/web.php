@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\NewsController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\BotManController;
 
@@ -37,6 +38,7 @@ Route::prefix('admin')
         Route::get('laporan', 'AdminController@laporan');
         Route::get('laporan/cetak', 'AdminController@cetak');
         Route::get('pengaduan/cetak/{id}', 'AdminController@pdf');
+        Route::resource('berita', 'BeritaController');
 });
 
 
@@ -49,6 +51,15 @@ Route::prefix('user')
                 Route::get('pengaduan', 'MasyarakatController@lihat');
 });
 
+<<<<<<< HEAD
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
+=======
+Route::resource('news', 'NewsController');
+Route::get('news','NewsController@news');
+
+
+
+
+>>>>>>> ee69c9cc5feb048e8cde6e5b926e0486199a2ecb
 
 require __DIR__.'/auth.php';

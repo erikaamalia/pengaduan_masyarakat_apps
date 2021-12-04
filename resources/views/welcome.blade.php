@@ -69,10 +69,20 @@
           Sampaikan laporan masalah Anda di sini, kami akan memprosesnya
           dengan cepat.
         </p>
-        <button
-          class="mx-auto lg:mx-0 bg-blue-500 text-white font-bold rounded-md my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
-          <a href="{{ url('login')}}">Laporkan!</a>
-        </button>
+        <div class="flex flex-row">
+          <a href="{{ url('login')}}">  
+            <button
+              class="mx-auto lg:mx-0 bg-blue-500 text-white font-bold rounded-md my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+              Laporkan!
+            </button>
+          </a>
+          <a href="{{ url('news')}}" target="_blank">
+            <button
+              class="mx-auto lg:mx-0 bg-blue-500 text-white font-bold rounded-md my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" style="margin-left: 10px">
+              News!
+            </button>
+          </a>
+        </div>
       </div>
       <!--Right Col-->
       <div class="w-full md:w-3/5 text-center">

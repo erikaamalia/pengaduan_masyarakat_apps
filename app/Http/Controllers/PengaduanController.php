@@ -22,7 +22,7 @@ class PengaduanController extends Controller
             'items' => $items
         ]);
 
-        
+
     }
 
     /**
@@ -55,7 +55,7 @@ class PengaduanController extends Controller
     public function show($id)
     {
         $item = Pengaduan::with([
-            'details', 'user' 
+            'details', 'user'
         ])->findOrFail($id);
 
         $tangap = Tanggapan::where('pengaduan_id',$id)->first();
@@ -86,9 +86,9 @@ class PengaduanController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
-        
-        $status->update($data);
+
+
+        // $status->update($data);
         return redirect('admin/pengaduans');
     }
 
