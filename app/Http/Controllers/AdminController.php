@@ -15,13 +15,13 @@ class AdminController extends Controller
 {
     public function __invoke()
     {
-        
+
     }
 
     public function index($id) {
 
         $item = Pengaduan::with([
-            'details', 'user' 
+            'details', 'user'
         ])->findOrFail($id);
 
         return view('pages.admin.tanggapan.add',[

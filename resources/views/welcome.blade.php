@@ -41,6 +41,9 @@
         <a href="#how" class="block mt-4 lg:inline-block lg:mt-0 text-black mr-4">
           Tata Cara
         </a>
+        <a href="{{ url('berita') }}" class="block mt-4 lg:inline-block lg:mt-0 text-black mr-4">
+            Kabar Berita
+          </a>
       </div>
       <div>
         <button
@@ -70,18 +73,18 @@
           dengan cepat.
         </p>
         <div class="flex flex-row">
-          <a href="{{ url('login')}}">  
+          <a href="{{ url('login')}}">
             <button
               class="mx-auto lg:mx-0 bg-blue-500 text-white font-bold rounded-md my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
               Laporkan!
             </button>
           </a>
-          <a href="{{ url('news')}}" target="_blank">
+          {{--  <a href="{{ url('news')}}" target="_blank">
             <button
               class="mx-auto lg:mx-0 bg-blue-500 text-white font-bold rounded-md my-6 py-4 px-8 shadow-lg focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out" style="margin-left: 10px">
               News!
             </button>
-          </a>
+          </a>  --}}
         </div>
       </div>
       <!--Right Col-->

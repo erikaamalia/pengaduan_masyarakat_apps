@@ -36,9 +36,12 @@ Route::prefix('admin')
         Route::resource('petugas', 'PetugasController');
 
         Route::get('laporan', 'AdminController@laporan');
+
+        Route::resource('news', 'NewsController');
+
         Route::get('laporan/cetak', 'AdminController@cetak');
         Route::get('pengaduan/cetak/{id}', 'AdminController@pdf');
-        Route::resource('berita', 'BeritaController');
+
 });
 
 
@@ -51,15 +54,8 @@ Route::prefix('user')
                 Route::get('pengaduan', 'MasyarakatController@lihat');
 });
 
-<<<<<<< HEAD
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
-=======
-Route::resource('news', 'NewsController');
-Route::get('news','NewsController@news');
-
-
-
-
->>>>>>> ee69c9cc5feb048e8cde6e5b926e0486199a2ecb
+Route::get('/berita', 'NewsController@show');
 
 require __DIR__.'/auth.php';
+

@@ -5,9 +5,6 @@ Dashboard
 @endsection
 @section('content')
 <main class="h-full pb-16 overflow-y-auto">
-  {{-- @foreach($liat as $li)
- <li>{{ $li->nik }}</li>
-  @endforeach --}}
   <div class="container px-6 mx-auto grid">
     <h2 class="my-6 text-2xl font-semibold text-center text-gray-700 dark:text-gray-200">
       Silahkan ajukan pengaduan Anda!

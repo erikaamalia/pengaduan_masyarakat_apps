@@ -90,20 +90,20 @@
 
     @if( Auth::user()->roles == 'ADMIN')
     <ul>
-      <li class="relative px-6 py-3">
-        <span
-          class="{{ (request()->is('admin/berita')) ? 'absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg' : '' }} "
-          aria-hidden="true"></span>
-        <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
-          href="{{ route('berita.index')}}">
-          <svg class="w-5 h-5" viewBox="0 0 20 20" fill="currentColor">
-            <path
-              d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z" />
-          </svg>
-          <span class="ml-4">Berita</span>
-        </a>
-      </li>
-    </ul>
+        <ul>
+            <li class="relative px-6 py-3">
+              <span
+                class="{{ (request()->is('admin/news')) ? 'absolute inset-y-0 left-0 w-1 bg-purple-600 rounded-tr-lg rounded-br-lg' : '' }} "
+                aria-hidden="true"></span>
+              <a class="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200"
+                href="{{ url('admin/news')}}">
+                <svg class="w-5 h-5" viewBox="0 0 30 30" fill="currentColor">
+                    <path d="M 4 2 C 3.448 2 3 2.448 3 3 L 3 24 C 3 26.209 4.791 28 7 28 L 22 28 L 23 28 L 24 28 C 26.209 28 28 26.209 28 24 L 28 10 C 28 9.448 27.552 9 27 9 L 25 9 L 25 24 C 25 24.553 24.552 25 24 25 C 23.448 25 23 24.553 23 24 L 23 3 C 23 2.448 22.552 2 22 2 L 4 2 z M 6 6 L 20 6 L 20 9 L 6 9 L 6 6 z M 6 13 L 12 13 L 12 15 L 6 15 L 6 13 z M 14 13 L 20 13 L 20 15 L 14 15 L 14 13 z M 6 17 L 12 17 L 12 19 L 6 19 L 6 17 z M 14 17 L 20 17 L 20 19 L 14 19 L 14 17 z M 6 21 L 12 21 L 12 23 L 6 23 L 6 21 z M 14 21 L 20 21 L 20 23 L 14 23 L 14 21 z"/>
+                </svg>
+                <span class="ml-4">News</span>
+              </a>
+            </li>
+          </ul>
     @endif
 
   </div>
