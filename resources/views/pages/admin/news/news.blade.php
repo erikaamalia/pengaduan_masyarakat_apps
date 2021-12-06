@@ -28,7 +28,7 @@ News
           </ul>
         </div>
         @endif
-        <table class="w-full whitespace-no-wrap">
+        <table class="w-full whitespace-pre-line">
           <thead>
             <tr
               class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
@@ -59,7 +59,7 @@ News
                     <div class="flex items-center text-sm">
                       <!-- Avatar with inset shadow -->
                       <div class="relative hidden mr-3  md:block">
-                        <img class=" h-32 w-35 " width="150px" src="{{ Storage::url($item->image) }}" alt="" loading="lazy" />
+                        <img src="{{ Storage::url($item->image) }}"/>
                       </div>
                     </div>
                 </td>
@@ -70,22 +70,20 @@ News
 
                 <td class="px-4 py-3">
                     <div class="flex items-center space-x-4 text-sm">
-                      <a href="#"
+                      <a href="{{ route('news.edit', $item->id) }}"
                         class="flex items-center justify-between  text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                         aria-label="Detail">
 
                         <svg class="w-5 h-5" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                            d="M 19.171875 2 C 18.448125 2 17.724375 2.275625 17.171875 2.828125 L 16 4 L 20 8 L 21.171875 6.828125 C 22.275875 5.724125 22.275875 3.933125 21.171875 2.828125 C 20.619375 2.275625 19.895625 2 19.171875 2 z M 14.5 5.5 L 3 17 L 3 21 L 7 21 L 18.5 9.5 L 14.5 5.5 z"/>
                         </svg>
                       </a>
 
-                      <form action="#" method="POST">
+                      <form action="{{ route('news.destroy', $item->id) }}" method="POST" onsubmit="return confirm('Anda yakin ingin menghapus data?')">
                         @csrf
                         @method('delete')
-                        <button
+                        <button type="submit"
                           class="flex items-center justify-between  text-sm font-medium leading-5 text-purple-600 rounded-lg dark:text-gray-400 focus:outline-none focus:shadow-outline-gray"
                           aria-label="Delete">
                           <svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20">
@@ -101,6 +99,9 @@ News
             @endforeach
           </tbody>
         </table>
+        <div class="d-flex justify-content-center">
+            {{ $news->links() }}
+        </div>
       </div>
     </div>
   </div>

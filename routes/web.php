@@ -55,6 +55,7 @@ Route::prefix('user')
 });
 
 Route::match(['get', 'post'], '/botman', 'BotManController@handle');
+Route::get('/berita/detail/{id}', 'NewsController@detail');
 Route::get('/berita', 'NewsController@show');
 
 require __DIR__.'/auth.php';

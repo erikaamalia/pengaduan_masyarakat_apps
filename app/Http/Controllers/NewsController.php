@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class NewsController extends Controller
@@ -48,7 +48,6 @@ class NewsController extends Controller
             'created_at' =>now()
         ]);
 
-        Alert::success('Berhasil', 'Berita baru ditambahkan');
         return redirect('admin/news');
     }
 
@@ -57,6 +56,43 @@ class NewsController extends Controller
         $news = DB::table('news')->orderby('id', 'desc')->get();
             return view('pages.Berita.berita', ['news'=>$news]
         );
+    }
+
+    public function detail($id)
+    {
+        $news = DB::table('news')->where('id', $id)->first();
+        return view('pages.Berita.detailBerita', ['news'=>$news]);
+    }
+
+    public function edit($id)
+    {
+        $news = DB::table('news')->where('id', $id)->first();
+        return view('pages.admin.news.editNews', ['news'=>$news]);
+    }
+
+    public function update(Request $request, $id)
+    {
+        $judul = $request->judul;
+        $deskripsi = $request->deskripsi;
+
+        if($request->image && file_exists(storage_path('app/public/assets/berita' . $request->image))){
+            Storage::delete('public/assets/berita' . $request->image);
+        }
+
+        $image = $request->file('image')->store('assets/berita', 'public');
+
+        DB::table('news')->where('id', $id)
+                            ->update(['judul' => $judul, 'deskripsi' => $deskripsi, 'image' => $image]) ;
+
+        Alert::success('Berhasil', 'Berita diupdate');
+        return redirect()->route('news.index');
+    }
+
+    public function destroy($id)
+    {
+        DB::table('news')->where('id', $id)->delete();
+        Alert::success('Berhasil', 'Berita terhapus');
+        return redirect()->route('news.index');
     }
 
 }

@@ -43,7 +43,7 @@
           <a href="/#how" class="block mt-4 lg:inline-block lg:mt-0 text-black mr-4">
             Tata Cara
           </a>
-          <a href="#" class="block mt-4 lg:inline-block lg:mt-0 text-black mr-4">
+          <a href="{{ url('berita') }}" class="block mt-4 lg:inline-block lg:mt-0 text-black mr-4">
               Kabar Berita
             </a>
         </div>
@@ -61,17 +61,26 @@
       </div>
     </nav>
 
-    @foreach ($news as $article)
-    <div class="col-md-4 col-sm-12 mt-4">
-        <div class="card">
-            <img src="https://atlantictravelsusa.com/wp-content/uploads/2016/04/dummy-post-horisontal-thegem-blog-default.jpg" class="card-img-top" alt="gambar" >
-            <div class="card-body">
-                <h5 class="card-title">{{ $article->judul }}</h5>
-                <a href="#" class="btn btn-primary">Baca berita</a>
+
+    <div class="container my-20 mx-auto px-4 md:px-12">
+        <div class="flex flex-wrap -mx-1 lg:-mx-4">
+            @foreach ($news as $article)
+            <div class="my-1 px-1 w-full md:w-1/2 lg:my-4 lg:px-4 lg:w-1/4">
+                <!-- Article -->
+                <article class="overflow-hidden rounded-lg shadow-lg  text-gray-800">
+                <img class="alignnone size-medium wp-image-560930"
+                    src="{{ Storage::url($article->image) }}" />
+                    <header class="flex items-center justify-between leading-tight p-2 md:p-4">
+                        <h1 class="text-lg font-bold">{{ $article->judul }}</h1>
+                    </header>
+                        <button class="text-blue-500 font-medium rounded-md py-3 px-4 focus:outline-none focus:shadow-outline transform transition hover:scale-105 duration-300 ease-in-out">
+                            <a href="{{ url('berita/detail', $article->id) }}">Baca berita</a>
+                        </button>
+                </article>
             </div>
+            @endforeach
         </div>
     </div>
-    @endforeach
 
     <!-- Footer -->
     <footer class="text-center font-medium bg-blue-200 py-5">
