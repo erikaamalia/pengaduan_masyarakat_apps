@@ -1,3 +1,16 @@
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PENGKAT | Verify Email</title>
+
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link rel="icon" href="{{ asset('img/favicon.svg')}}">
+    <style>
+      html {
+        scroll-behavior: smooth;
+      }
+    </style>
+</head>
 <x-guest-layout>
     <x-auth-card>
         <x-slot name="logo">
@@ -7,7 +20,7 @@
         </x-slot>
 
         <div class="mb-4 text-sm text-gray-600">
-            {{ __('Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn\'t receive the email, we will gladly send you another.') }}
+            {{ __('Terima kasih telah mendaftar! Sebelum memulai, dapatkah Anda memverifikasi alamat email Anda dengan mengklik tautan yang baru saja kami kirimkan melalui email kepada Anda? Jika Anda tidak menerima email tersebut, dengan senang hati kami akan mengirimkan yang lain kepada Anda.') }}
         </div>
 
         @if (session('status') == 'verification-link-sent')

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\NewsController;
 use RealRashid\SweetAlert\Facades\Alert;
 use App\Http\Controllers\BotManController;
-
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +16,7 @@ use App\Http\Controllers\BotManController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Auth::routes(['verify' => true]);
 
 Route::get('/', function () {
 
@@ -47,7 +48,7 @@ Route::prefix('admin')
 
 // Masyarakat
 Route::prefix('user')
-    ->middleware(['auth', 'MasyarakatMiddleware'])
+    ->middleware(['auth', 'MasyarakatMiddleware','verified'])
     ->group(function() {
 				Route::get('/', 'MasyarakatController@index')->name('masyarakat-dashboard');
                 Route::resource('pengaduan', 'MasyarakatController');
