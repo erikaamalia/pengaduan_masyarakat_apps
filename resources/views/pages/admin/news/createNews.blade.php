@@ -11,7 +11,7 @@ Data Berita
       Tambah berita baru
     </h2>
 
-    <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data">
+    <form action="{{ route('news.store') }}" method="POST" enctype="multipart/form-data" onsubmit="return confirm('Anda yakin untuk membuat berita baru?')">
       @csrf
       <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
 
@@ -19,7 +19,7 @@ Data Berita
           <span class="text-gray-700 dark:text-gray-400">Judul</span>
           <input
             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-            type="text" placeholder="Judul berita" value="{{ old('judul')}}" name="judul"></input>
+            type="text" placeholder="Judul berita" value="{{ old('judul')}}" name="judul" required></input>
         </label>
 
         <label class="block mt-4 text-sm">
@@ -27,14 +27,14 @@ Data Berita
             <textarea
               class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
               rows="15" type="text" placeholder="Isi berita" value="{{ old('deskripsi')}}"
-              name="deskripsi"></textarea>
+              name="deskripsi" required></textarea>
           </label>
 
           <label for="image" class="block mt-4 text-sm">
             <span class="text-gray-700 dark:text-gray-400">Foto</span>
             <input
               class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-              type="file" value="{{ old('image')}}" name="image" />
+              type="file" value="{{ old('image')}}" name="image" required/>
           </label>
 
 

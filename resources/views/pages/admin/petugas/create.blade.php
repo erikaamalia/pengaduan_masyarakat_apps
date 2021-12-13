@@ -10,10 +10,18 @@ Data Petugas
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
       Forms
     </h2>
-
-
-
-    <form action="{{ route('petugas.store')}} " method="POST" enctype="multipart/form-data">
+    <div class="w-full overflow-x-auto">
+        @if ($errors->any())
+        <div class="alert alert-danger">
+          <ul>
+            @foreach($errors->all() as $error)
+            <li>{{ $error }} </li>
+            @endforeach
+          </ul>
+        </div>
+        @endif
+    </div>
+    <form action="{{ route('petugas.store')}} " method="POST" enctype="multipart/form-data" onsubmit="return confirm('Anda yakin untuk menambah petugas?')">
       @csrf
       <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
 
@@ -21,28 +29,28 @@ Data Petugas
           <span class="text-gray-700 dark:text-gray-400">NIK</span>
           <input
             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-            type="text" placeholder="NIK" value="{{ old('nik')}}" name="nik"></input>
+            type="text" placeholder="351204xxxxxxxxxx" value="{{ old('nik')}}" name="nik" required></input>
         </label>
 
         <label class="block mt-4 text-sm">
-          <span class="text-gray-700 dark:text-gray-400">Name</span>
+          <span class="text-gray-700 dark:text-gray-400">Nama</span>
           <input
             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-            type="text" placeholder="John Doe" value="{{ old('name')}}" name="name"></input>
+            type="text" placeholder="Nama lengkap" value="{{ old('name')}}" name="name" required></input>
         </label>
 
         <label class="block mt-4 text-sm">
           <span class="text-gray-700 dark:text-gray-400">Email</span>
           <input
             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-            type="email" placeholder="email@email.com" value="{{ old('email')}}" name="email"></input>
+            type="email" placeholder="email@email.com" value="{{ old('email')}}" name="email" required></input>
         </label>
 
         <label class="block mt-4 text-sm">
           <span class="text-gray-700 dark:text-gray-400">No. Hp</span>
           <input
             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-            type="text" placeholder="0123456789" value="{{ old('phone')}}" name="phone"></input>
+            type="text" placeholder="08xxxxxxxxxx" value="{{ old('phone')}}" name="phone" required></input>
         </label>
 
         <label class="block mt-4 text-sm">
@@ -58,13 +66,13 @@ Data Petugas
           <span class="text-gray-700 dark:text-gray-400">Password</span>
           <input
             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-            type="password" placeholder="password" value="{{ old('password')}}" name="password"></input>
+            type="password" placeholder="password" value="{{ old('password')}}" name="password" required></input>
         </label>
         <label class="block mt-4 text-sm">
           <span class="text-gray-700 dark:text-gray-400">Konfirmasi Password</span>
           <input
             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
-            type="password" placeholder="password" value="{{ old('password')}}" name="password_confirmation"></input>
+            type="password" placeholder="password confirm" value="{{ old('password')}}" name="password_confirmation" required></input>
         </label>
 
 

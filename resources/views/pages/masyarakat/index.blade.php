@@ -20,7 +20,7 @@ Dashboard
       </ul>
     </div>
     @endif
-    <form action="{{ route('pengaduan.store')}} " method="POST" enctype="multipart/form-data">
+    <form action="{{ route('pengaduan.store')}} " method="POST" enctype="multipart/form-data" onsubmit="return confirm('Anda yakin untuk mengajukan laporan ini?')">
       @csrf
 
       <div class="px-4 py-3 mb-8 bg-white rounded-lg shadow-md dark:bg-gray-800">
@@ -29,18 +29,18 @@ Dashboard
           <textarea
             class="block w-full mt-1 text-sm dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 form-textarea focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray"
             rows="8" type="text" placeholder="Isi laporan Anda" value="{{ old('description')}}"
-            name="description"></textarea>
+            name="description" required></textarea>
         </label>
 
         <label for="image" class="block mt-4 text-sm">
           <span class="text-gray-700 dark:text-gray-400">Foto</span>
           <input
             class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
-            type="file" value="{{ old('image')}}" name="image" />
+            type="file" value="{{ old('image')}}" name="image" required/>
         </label>
 
         <div class=" mt-4 form-check">
-            <input class="form-check-input" type="checkbox"  name="check">
+            <input class="form-check-input" type="checkbox"  name="check" required>
             <label class="text-gray-700 dark:text-gray-400">
                 Dengan ini saya menyatakan bahwa laporan yang saya buat ini dapat
                 saya pertanggungjawabkan kebenarannya.
