@@ -45,7 +45,7 @@ Dashboard
         <div class="px-4 py-3 mb-8 flex text-gray-800 bg-white rounded-lg shadow-md dark:bg-gray-800">
           <div class="relative hidden mr-3  md:block ">
             <h1 class="text-center mb-8 font-semibold">Foto</h1>
-            <img class=" h-32 w-35 " width="150px" src="{{ Storage::url($item->image) }}" alt="" loading="lazy" />
+            <img class=" h-32 w-35 " width="150px" src="{{ $item->image }}" alt="" loading="lazy" />
           </div>
           <div class="text-center flex-1 dark:text-gray-400">
             <h1 class="mb-8 font-semibold">Keterangan</h1>

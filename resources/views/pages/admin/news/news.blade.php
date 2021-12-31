@@ -59,7 +59,7 @@ News
                     <div class="flex items-center text-sm">
                       <!-- Avatar with inset shadow -->
                       <div class="relative hidden mr-3  md:block">
-                        <img src="{{ Storage::url($item->image) }}"/>
+                        <img src="{{ $item->image }}"/>
                       </div>
                     </div>
                 </td>

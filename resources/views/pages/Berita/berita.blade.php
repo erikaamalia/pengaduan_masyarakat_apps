@@ -69,7 +69,7 @@
                 <!-- Article -->
                 <article class="overflow-hidden rounded-lg shadow-lg  text-gray-800">
                 <img class="alignnone size-medium wp-image-560930"
-                    src="{{ Storage::url($article->image) }}" />
+                    src="{{ $article->image }}" />
                     <header class="flex items-center justify-between leading-tight p-2 md:p-4">
                         <h1 class="text-lg font-bold">{{ $article->judul }}</h1>
                     </header>

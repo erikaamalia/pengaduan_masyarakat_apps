@@ -63,7 +63,7 @@
     <div class="max-w-3xl my-10 mx-auto px-4 sm:px-6 xl:max-w-5xl xl:px-20">
         <div class="flex flex-wrap -mx-1 lg:-mx-4">
             <div class="auto-w-sm rounded overflow-hidden shadow-lg">
-                <img class="w-full" src="{{ Storage::url($news->image) }}">
+                <img class="w-full" src="{{ $news->image }}">
                 <div class="px-6 py-4">
                 <div class="font-bold text-xl mb-2">{{ $news->judul }}</div>
                 <p class="text-gray-700 text-base">

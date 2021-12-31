@@ -6,12 +6,37 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Oracle;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class NewsController extends Controller
 {
+    public function oracle()
+    {
+        $data = new Oracle;
+        return $data;
+    }
+
+    public function uploadFile(Request $request,$oke)
+    {
+            $result ='';
+            $file = $request->file($oke);
+            $name = $file->getClientOriginalName();
+
+            $extension = explode('.',$name);
+            $extension = strtolower(end($extension));
+
+            $key = rand().'-'.$oke;
+            $tmp_file_name = "{$key}.{$extension}";
+            $tmp_file_path = "news/";
+            $file->move($tmp_file_path,$tmp_file_name);
+
+            $result = 'news'.'/'.$tmp_file_name;
+        return $result;
+    }
+
     public function index()
     {
         if( Auth::user()->roles != 'ADMIN')
@@ -39,12 +64,14 @@ class NewsController extends Controller
             'image' => 'required|image|mimes:jpeg,png,jpg',
         ]);
 
-        $imageName = time().'.'.request()->image->getClientOriginalExtension();
+        $foto = $this->uploadFile($request,'image');
+        $image_name = $foto;
+        $upload = $this->oracle()->upFileOracle($image_name);
 
         DB::table('news')->insert([
             'judul'=>$request->judul,
             'deskripsi'=>$request->deskripsi,
-            'image'=>$request->file('image')->store('assets/berita', 'public', $imageName),
+            'image'=>$upload['message'],
             'created_at' =>now()
         ]);
 
@@ -75,14 +102,18 @@ class NewsController extends Controller
         $judul = $request->judul;
         $deskripsi = $request->deskripsi;
 
-        if($request->image && file_exists(storage_path('app/public/assets/berita' . $request->image))){
-            Storage::delete('public/assets/berita' . $request->image);
+        if($request->file('image')!=null)
+        {
+            $foto = $this->uploadFile($request,'image');
+            $file_name = $foto;
+            $upOracle = $this->oracle()->upFileOracle($file_name);
+        }else
+        {
+            $foto = $request->image;
         }
 
-        $image = $request->file('image')->store('assets/berita', 'public');
-
         DB::table('news')->where('id', $id)
-                            ->update(['judul' => $judul, 'deskripsi' => $deskripsi, 'image' => $image]) ;
+                            ->update(['judul' => $judul, 'deskripsi' => $deskripsi, 'image' => $upOracle['message']]) ;
 
         Alert::success('Berhasil', 'Berita diupdate');
         return redirect()->route('news.index');

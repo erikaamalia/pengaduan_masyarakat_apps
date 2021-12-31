@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Pengaduan;
 use App\Models\Tanggapan;
 use App\Models\User;
+use App\Models\Oracle;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Session;
@@ -14,6 +15,29 @@ use File;
 
 class MasyarakatController extends Controller
 {
+    public function oracle()
+    {
+        $data = new Oracle;
+        return $data;
+    }
+
+    public function uploadFile(Request $request,$oke)
+    {
+            $result ='';
+            $file = $request->file($oke);
+            $name = $file->getClientOriginalName();
+
+            $extension = explode('.',$name);
+            $extension = strtolower(end($extension));
+
+            $key = rand().'-'.$oke;
+            $tmp_file_name = "{$key}.{$extension}";
+            $tmp_file_path = "masyarakat/";
+            $file->move($tmp_file_path,$tmp_file_name);
+
+            $result = 'masyarakat'.'/'.$tmp_file_name;
+        return $result;
+    }
     /**
      * Display a listing of the resource.
      *
@@ -51,6 +75,10 @@ class MasyarakatController extends Controller
         'check' => 'accepted',
         ]);
 
+        $foto = $this->uploadFile($request,'image');
+        $image_name = $foto;
+        $upload = $this->oracle()->upFileOracle($image_name);
+
         $nik = Auth::user()->nik;
         $id = Auth::user()->id;
         $name = Auth::user()->name;
@@ -59,9 +87,7 @@ class MasyarakatController extends Controller
         $data['user_nik']=$nik;
         $data['user_id']=$id;
         $data['name']=$name;
-        $data['image'] = $request->file('image')->store('assets/laporan', 'public');
-
-
+        $data['image'] = $upload['message'];
 
         Alert::success('Berhasil', 'Pengaduan terkirim');
         Pengaduan::create($data);
